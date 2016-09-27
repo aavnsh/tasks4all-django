@@ -1,0 +1,54 @@
+{% extends "tasklist/base.html" %}
+
+{% block title %}Task: {{ task.title }}{% endblock %}
+
+{% block content %}
+
+<h3>{{ task }}</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div id="EditTask">
+
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="row">
+                    <td class="col-xs-6 col-sm-4">Title:</td>
+                    <td>{{ form.title }}</td>
+                </tr>
+
+                <tr class="row">
+                    <td class="col-xs-6 col-sm-4">Due:</td>
+                    <td>{{ form.due_date }}</td>
+                </tr>
+
+                <tr class="row">
+                    <td class="col-xs-6 col-sm-4" valign="top">Note:</td>
+                    <td class="col-xs-6 col-sm-4">{{ form.note }}</td>
+                </tr>
+
+                <tr class="row">
+                    <td class="col-xs-6 col-sm-4">Priority:</td>
+                    <td class="col-xs-6 col-sm-4">{{ form.priority }}</td>
+                </tr>
+                <tr class="row">
+                    <td class="col-xs-6 col-sm-4">Completed:</td>
+                    <td class="col-xs-6 col-sm-4">{{ form.completed }}</td>
+                </tr>
+                <tr class="row">
+                    <td colspan=2 align="middle" class="col-xs-6 col-sm-4"><input type="submit"
+                                                                                  class="btn btn-sm btn-primary"
+                                                                                  name="edit_task" value="Edit task">
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <hr/>
+
+</form>
+
+{% endblock %}
